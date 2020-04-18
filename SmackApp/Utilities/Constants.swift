@@ -7,3 +7,5 @@
 //
 
 import Foundation
+//segues
+let TO_LOGIN = "toLogin"
