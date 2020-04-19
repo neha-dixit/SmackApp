@@ -19,6 +19,7 @@
 		52923F69244AA8D400570BFE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F68244AA8D400570BFE /* GradientView.swift */; };
 		52923F6C244AC30200570BFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F6B244AC30200570BFE /* Constants.swift */; };
 		52923F6E244B0C5600570BFE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F6D244B0C5600570BFE /* LoginVC.swift */; };
+		52923F70244C0CF000570BFE /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F6F244C0CF000570BFE /* CreateAccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		52923F68244AA8D400570BFE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		52923F6B244AC30200570BFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52923F6D244B0C5600570BFE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		52923F6F244C0CF000570BFE /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		550696B914B267E799B2BDD2 /* Pods_SmackApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A592853A109405035C496C /* Pods-SmackApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackApp.release.xcconfig"; path = "Target Support Files/Pods-SmackApp/Pods-SmackApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				52739CD62449A26D004A9697 /* ChatVC.swift */,
 				52739CD82449A282004A9697 /* ChannelVC.swift */,
 				52923F6D244B0C5600570BFE /* LoginVC.swift */,
+				52923F6F244C0CF000570BFE /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				52923F6E244B0C5600570BFE /* LoginVC.swift in Sources */,
 				52923F69244AA8D400570BFE /* GradientView.swift in Sources */,
 				52739CD12449A205004A9697 /* SWRevealViewController.m in Sources */,
+				52923F70244C0CF000570BFE /* CreateAccountVC.swift in Sources */,
 				52923F6C244AC30200570BFE /* Constants.swift in Sources */,
 				52739CD92449A282004A9697 /* ChannelVC.swift in Sources */,
 				52739CD72449A26D004A9697 /* ChatVC.swift in Sources */,
