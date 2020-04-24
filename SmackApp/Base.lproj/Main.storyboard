@@ -185,7 +185,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-bu-014">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-bu-014" customClass="RoundedButton" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="35" y="267.5" width="250" height="30"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -196,7 +196,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-4b-10t">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-4b-10t" customClass="RoundedButton" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="35" y="297.5" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Drn-g2-AYt"/>
@@ -290,7 +290,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDW-Ob-jp6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDW-Ob-jp6" customClass="RoundedButton" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="35" y="498" width="250" height="30"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -300,6 +300,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccountPressed:" destination="0Ml-v5-rwE" eventType="touchUpInside" id="WXy-N2-uW5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGg-a2-USg">
                                 <rect key="frame" x="292" y="8" width="28" height="28"/>
@@ -320,6 +323,7 @@
                                 </state>
                                 <connections>
                                     <action selector="CreateAccountBtnPressed:" destination="WkM-te-rJd" eventType="touchUpInside" id="EcD-1U-6RS"/>
+                                    <action selector="pickAvatorPressed:" destination="0Ml-v5-rwE" eventType="touchUpInside" id="iAv-8f-YUe"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-ma-2Eo">
@@ -347,6 +351,8 @@
                                 </state>
                                 <connections>
                                     <action selector="CreateAccountBtnPressed:" destination="WkM-te-rJd" eventType="touchUpInside" id="AG9-Qy-aw9"/>
+                                    <action selector="pickAvatorPressed:" destination="0Ml-v5-rwE" eventType="touchUpInside" id="k8R-ax-9gF"/>
+                                    <action selector="pickBGColorPressed:" destination="0Ml-v5-rwE" eventType="touchUpInside" id="gas-ut-VQi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -372,6 +378,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="B4y-cF-Mh6"/>
                     <connections>
+                        <outlet property="emailTxt" destination="uSh-6i-DHJ" id="XUV-WX-ugZ"/>
+                        <outlet property="passwordTxt" destination="Uyv-l5-ePq" id="el1-LU-OwH"/>
+                        <outlet property="profileDefault" destination="qVn-ma-2Eo" id="cIc-lR-02O"/>
+                        <outlet property="usernameTxt" destination="99L-FL-cCh" id="bzl-0v-1Fa"/>
                         <segue destination="GtQ-Xl-Iiv" kind="unwind" identifier="unwindToChannel" unwindAction="prepareforumwindWithSegue:" id="K8n-gb-1Qn"/>
                     </connections>
                 </viewController>
