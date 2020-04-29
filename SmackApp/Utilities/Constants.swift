@@ -12,6 +12,7 @@ let TO_LOGIN = "toLogin"
 //let T0_CREATE_ACCOUNT = "ToCreateAccount"
 let  TO_CREATE_ACCOUNT = "ToCreateAccount"
 let  UNWIND = "unwindToChannel"
+let TO_AVATAR_PICKER = "toAvatarPicker"
 
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
