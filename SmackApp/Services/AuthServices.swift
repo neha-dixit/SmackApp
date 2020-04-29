@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 class AuthServices {
     static let instance = AuthServices()
     // few variables to save user's details like he is logged in or logout
@@ -38,19 +39,62 @@ class AuthServices {
     }
     func registerUser(email:String, password: String, Completion: @escaping CompletionHandler){
         let lowerCaseEmail = email.lowercased()
-        let header = ["content-Type": "application/JSON; Charset = UTF-8"]
+        //let header = ["content-Type": "application/JSON; Charset = UTF-8"]
         
         let body: [String: Any] = ["email": lowerCaseEmail,
                                     "password": password]
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             if response.result.error == nil {
                 Completion(true)
+                print("under register user if condition")
             } else {
                 Completion(false)
                 debugPrint(response.result.error as Any)
             }
         }
-       
+    }
+        func loginUser(email: String, password: String, completion: @escaping CompletionHandler){
+            let lowerCaseEmail = email.lowercased()
+            let body: [String: Any] = [
+                "email": lowerCaseEmail,
+            "password": password
+            ]
+            Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON
+                { (response) in
+                if response.result.error == nil{
+                    print("No error")
+                    //let json = try! JSON(data: data)
+                    // with normal way of using json
+                   // if let json = try! (response.result.value as? Dictionary<String, Any>) {
+                      //  if let email = json["user"] as? String{
+                       //     self.userEmail = email
+                      //      print(email)
+                     //   }
+                      //  if let token = json["token"] as? String {
+                         //   self.authToken = token
+                         //   print(token)
+                    
+                      //  }
+                   // }
+                    // using swiftyJSON
+                    guard let data = response.data else { return }
+                    let json =  try! JSON(data: data)
+                    self.userEmail = json["user"].stringValue
+                    self.authToken = json["token"].stringValue
+                    self.isLoggedIn = true
+                    completion(true)
+                    
+            
+                }
+                else {
+                    completion(false)
+                    print("hi error")
+                    debugPrint(response.result.error as Any)
+                }
+                
+            }
+            
+    }
 }
 
-}
+
