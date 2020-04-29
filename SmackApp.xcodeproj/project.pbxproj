@@ -22,6 +22,7 @@
 		52923F70244C0CF000570BFE /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F6F244C0CF000570BFE /* CreateAccountVC.swift */; };
 		52923F74244F4E1400570BFE /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F73244F4E1400570BFE /* AuthServices.swift */; };
 		52923F762452AF8E00570BFE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52923F752452AF8E00570BFE /* RoundedButton.swift */; };
+		52A9CA132459635600541AE9 /* UserDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9CA122459635600541AE9 /* UserDataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		52923F6F244C0CF000570BFE /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		52923F73244F4E1400570BFE /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		52923F752452AF8E00570BFE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		52A9CA122459635600541AE9 /* UserDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServices.swift; sourceTree = "<group>"; };
 		550696B914B267E799B2BDD2 /* Pods_SmackApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A592853A109405035C496C /* Pods-SmackApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackApp.release.xcconfig"; path = "Target Support Files/Pods-SmackApp/Pods-SmackApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				52923F73244F4E1400570BFE /* AuthServices.swift */,
+				52A9CA122459635600541AE9 /* UserDataServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				52739CBA2449A044004A9697 /* AppDelegate.swift in Sources */,
 				52739CBC2449A044004A9697 /* SceneDelegate.swift in Sources */,
+				52A9CA132459635600541AE9 /* UserDataServices.swift in Sources */,
 				52923F6E244B0C5600570BFE /* LoginVC.swift in Sources */,
 				52923F69244AA8D400570BFE /* GradientView.swift in Sources */,
 				52739CD12449A205004A9697 /* SWRevealViewController.m in Sources */,
