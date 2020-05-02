@@ -7,22 +7,20 @@
 //
 
 import UIKit
-
 class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
-    
-    
+    @IBOutlet weak var collectionViewAvatar: UICollectionView!
     //outlets
-    
-    @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     
+    // variable
+    var avatarType = AvatarType.dark
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionview.delegate = self
-        collectionview.dataSource = self
+      collectionViewAvatar.delegate = self
+        collectionViewAvatar.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -33,23 +31,57 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath) as? AvatarCell {
+            cell.configureCell(index: indexPath.item, type: avatarType)
            return cell
        }
         return AvatarCell()
     }
-    //func collectionView(_ collectionView: UICollectionView, numberofItemsInSection section: Int)-> Int {
-    //    return
-  //  }
+   
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       var numOfColumns : CGFloat = 3
+        // its for small iphone and 320 is dimenstion for smallest iphone which is iphone SE currently
+      if UIScreen.main.bounds.width > 320 {
+            numOfColumns = 4
+       }
+        // calculate the width and size of our cell
+      let spaceBetweenCells : CGFloat = 10
+      let padding : CGFloat = 20
+       let cellDimension = ((collectionViewAvatar.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / (numOfColumns)
+    print(cellDimension)
+    print(numOfColumns)
+    //print(CGSize())
+      return CGSize(width: cellDimension, height: cellDimension)
+    
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           if avatarType == .dark {
+               UserDataServices.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
+            print(UserDataServices.instance.avatarName)
+           } else {
+               UserDataServices.instance.setAvatarName(avatarName: "light\(indexPath.item)")
+           }
+        self.dismiss(animated: true, completion: nil)
+    }
+   
     //actions
-    @IBAction func backButtonPressed(_ sender: Any) {
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func segementControlChange(_ sender: Any) {
+    
+    @IBAction func SegementControlChange(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            avatarType = .dark
+        } else {
+            avatarType = .light
+        }
+        collectionViewAvatar.reloadData()
     }
     
-
+    
 }

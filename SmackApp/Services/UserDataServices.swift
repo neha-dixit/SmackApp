@@ -10,21 +10,21 @@ import Foundation
 class UserDataServices {
     static let instance = UserDataServices()
     public private(set) var id = ""
-    public private(set) var avatorColor = ""
-    public private(set) var avatorName = ""
+    public private(set) var avatarColor = ""
+    public private(set) var avatarName = ""
     public private(set) var name = ""
     public private(set) var email = ""
     
-    func setUserData(id: String, color: String, avatorName: String, name: String, email: String){
+    func setUserData(id: String, color: String, avatarName: String, name: String, email: String){
         self.id = id
-        self.avatorColor = color
-        self.avatorName = avatorName
+        self.avatarColor = color
+        self.avatarName = avatarName
         self.email = email
         self.name = name
         
     }
-    func setAvatorName(avatorName: String){
-        self.avatorName = avatorName
+    func setAvatarName(avatarName: String){
+        self.avatarName = avatarName
     }
     
     

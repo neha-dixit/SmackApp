@@ -115,11 +115,11 @@ class AuthServices {
                 let json =  try! JSON(data: data)
                 let id = json["_id"].stringValue
                 let color = json["avatarColor"].stringValue
-                let avatorName = json["avatarName"].stringValue
+                let avatarName = json["avatarName"].stringValue
                 let email = json["email"].stringValue
                 let name  = json["name"].stringValue
                 
-                UserDataServices.instance.setUserData(id: id, color: color, avatorName: avatorName, name: name, email: email)
+                UserDataServices.instance.setUserData(id: id, color: color, avatarName: avatarName, name: name, email: email)
                 completion(true)
             }
             else {
