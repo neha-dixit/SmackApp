@@ -21,7 +21,7 @@ let USER_EMAIL = "userEmail"
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // URL Constants
-//let BASE_URL = "https://nehachat.herokuapp.com/v1"
+//let BASE_URL = "https://nehachat.herokuapp.com/v1/"
 let BASE_URL = "http://localhost:3005/v1/"
 //"https://nehachat.herokuapp.com"
 let URL_REGISTER = "\(BASE_URL)account/register"
@@ -34,4 +34,4 @@ let HEADER = ["content-Type": "application/JSON; Charset = UTF-8"]
 // colors
 let smackPurplecolor = #colorLiteral(red: 0.2588235294, green: 0.3294117647, blue: 0.7254901961, alpha: 0.5)
 //notifications
-let NOTIF_USER_DATA_DID_CHANGE = Notification(name: Notification.Name(rawValue: "notifiy new user is created"))
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")

@@ -51,13 +51,14 @@
                                 <rect key="frame" x="95" y="494.5" width="43" height="32"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <state key="highlighted" title="Login"/>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="gJE-ED-6Ry" eventType="touchUpInside" id="vDX-0n-uxc"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="YMD-CQ-Gkz" customClass="circleImage" customModule="SmackApp" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="YMD-CQ-Gkz" customClass="circleImage" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="473" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Mf5-H2-pmn"/>
@@ -117,6 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="R0p-bq-rYF" id="M8P-7s-bPN"/>
+                        <outlet property="userImg" destination="YMD-CQ-Gkz" id="Zeg-zg-A0h"/>
                         <segue destination="WkM-te-rJd" kind="show" identifier="toLogin" id="YQk-Ia-Shr"/>
                     </connections>
                 </viewController>
@@ -543,7 +545,6 @@
     <resources>
         <image name="addChannelButton" width="22" height="22"/>
         <image name="closeButton" width="28" height="28"/>
-        <image name="menuProfileIcon" width="99" height="99"/>
         <image name="profileDefault" width="192" height="192"/>
         <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>

@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAccountVC: UIViewController {
-
+    
     //outlets
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -17,31 +17,31 @@ class CreateAccountVC: UIViewController {
     
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
-   
+    
     @IBOutlet weak var userImg: UIImageView!
     
-    // some defualt variables we created here
-   var avatarName = "profileDefault"
+    // some default variables we created here
+    var avatarNamelocal = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
     var bgColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-       // viewDidAppear(true)
-
-        // Do any additional setup after loading the view.
+        
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        if UserDataServices.instance.avatarName != "" {
-            userImg.image = UIImage(named: UserDataServices.instance.avatarName)
-            avatarName = UserDataServices.instance.avatarName
-            if avatarName.contains("light") && bgColor == nil {
-                userImg.backgroundColor = UIColor.lightGray
-            }
+        super.viewDidAppear(true)
+        if UserDataServices.instance.avatarName1 != "" {
+            userImg.image = UIImage(named: UserDataServices.instance.avatarName1)
+            avatarNamelocal = UserDataServices.instance.avatarName1
+            print(avatarNamelocal)
+        if avatarNamelocal.contains("light") && bgColor == nil {
+            userImg.backgroundColor = UIColor.lightGray
         }
+        }
+        
     }
    
     
@@ -62,24 +62,25 @@ class CreateAccountVC: UIViewController {
             if success {
                 print ("Registered USer")
                 AuthServices.instance.loginUser(email: email, password: pass, completion: {
-                   (success) in
+                    (success) in
                     if success {
-                      //print("logged in User!", AuthServices.instance.authToken)
+                        //print("logged in User!", AuthServices.instance.authToken)
                         // here we put our login user detail and perform segue
-                        AuthServices.instance.createUser(name: name, email: email, avatorName: self.avatarName, AvatorColor: self.avatarColor, completion:{
+                        AuthServices.instance.createUser(name: name, email: email, avatarName: self.avatarNamelocal, AvatarColor: self.avatarColor, completion:{
                             (success) in
                             if success {
-                                print(UserDataServices.instance.name, UserDataServices.instance.avatarName, UserDataServices.instance.email)
+                                print( UserDataServices.instance.avatarName1, UserDataServices.instance.email)
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()
                                 
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                             
                         })
-                   }
+                    }
                 })
-                NotificationCenter.default.post(NOTIF_USER_DATA_DID_CHANGE)
+                
             }
             else{
                 debugPrint("error user not created")
@@ -88,7 +89,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func pickAvatorPressed(_ sender: Any) {
-         
+        
         performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
         viewDidAppear(true)
         
@@ -97,13 +98,14 @@ class CreateAccountVC: UIViewController {
     
     
     @IBAction func pickBGColorPressed(_ sender: Any) {
-       let r = CGFloat(arc4random_uniform(255))/255
-       let g = CGFloat(arc4random_uniform(255))/255
-       let b = CGFloat(arc4random_uniform(255))/255
-       bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        let r = CGFloat(arc4random_uniform(255))/255
+        let g = CGFloat(arc4random_uniform(255))/255
+        let b = CGFloat(arc4random_uniform(255))/255
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
         UIView.animate(withDuration: 0.2) {
             self.userImg.backgroundColor = self.bgColor
-        
+            
         }
     }
     func setUpView(){
